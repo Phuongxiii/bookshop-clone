@@ -14,3 +14,12 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
+// export async function getServerSideProps() {
+// 	const posts = "Hello World";
+// 	return {
+// 		props: {
+// 			posts,
+// 		},
+// 	};
+// }

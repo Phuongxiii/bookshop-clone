@@ -20,7 +20,7 @@ export default function ProductItem({ src, name, title, href }) {
 						src={src}
 						borderRadius='full'
 						boxSize='280px'
-						borderColor='#33333'
+						borderColor='#e0ddd7'
 						border='8px '
 					/>
 					<Heading

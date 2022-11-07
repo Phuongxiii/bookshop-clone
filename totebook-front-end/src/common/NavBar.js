@@ -10,7 +10,9 @@ import {
 	useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
+import AboutItem from "./AboutItem";
 import LinkPremium, { LinkPage } from "./LinkPremium";
+import Product from "./Product";
 
 export default function NavBar() {
 	return (
@@ -37,13 +39,13 @@ export default function NavBar() {
 						<Link href='/'>
 							<Image src='/SN Monogram.svg' w='45px' m='16px' />
 						</Link>
-						<Link href='/'>
+						<Link
+							href='/'
+							_hover={{
+								textDecoration: "none",
+							}}>
 							<Text
 								fontSize='32px'
-								textColor={useColorModeValue(
-									"#33333",
-									"#33333"
-								)}
 								display={{ base: "none", lg: "block" }}
 								fontWeight='100'>
 								Studio Neat
@@ -56,15 +58,25 @@ export default function NavBar() {
 						justifyContent='space-around'
 						display='flex'>
 						<LinkPremium
-							link='/'
-							boxChildren={<Text>Hello World</Text>}>
+							boxChildren={
+								<Product
+									src='/Untitled.png'
+									name='Mark one'
+									title='A Minimal, Durable, Retractable Pen'
+									href='/products/1'
+								/>
+							}>
 							PRODUCTS
 						</LinkPremium>
-						<LinkPage link='/'>LIMITED</LinkPage>
-						<LinkPage link='/'>CUSTOM</LinkPage>
+						<LinkPage link='/limited'>LIMITED</LinkPage>
+						<LinkPage link='/custom'>CUSTOM</LinkPage>
 						<LinkPremium
-							link='/'
-							boxChildren={<Text>Hello World</Text>}>
+							boxChildren={
+								<AboutItem
+									href='/about-us'
+									content='About Studio'
+								/>
+							}>
 							ABOUT US
 						</LinkPremium>
 						<LinkPage link='/'>CART({0})</LinkPage>

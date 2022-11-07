@@ -6,11 +6,11 @@ import Link from "next/link";
 import React from "react";
 import BoxMenu from "./BoxMenu";
 
-const BoxPremium = styled.div``;
+// const BoxPremium = styled.div``;
 
 const LinkNext = ({ className, link, children, boxChildren }) => (
 	<Box className={className} position='relative'>
-		<Link href={link}>
+		<Link href={link != undefined ? link : ""}>
 			<Text
 				lineHeight='14px'
 				fontSize='14px'
