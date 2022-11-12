@@ -7,4 +7,4 @@ class Feature(models.Model):
     title = models.CharField(max_length = 300)
     information_feature = models.TextField()
     image = models.URLField()
-    information = models.ForeignKey(Information,related_name='information_field', on_delete=models.CASCADE)
+    information = models.ForeignKey(Information,related_name='feature_field', on_delete=models.CASCADE)

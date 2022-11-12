@@ -1,0 +1,9 @@
+from rest_framework import serializers
+from product.models.information import Information
+from product.serializers.feature_serializers import FeatureSerializers
+
+class InformationSerializers(serializers.ModelSerializer):
+    feature_field = FeatureSerializers(many=True)
+    class Meta: 
+        model = Information
+        fields = ['specifecations', 'feature_field']
