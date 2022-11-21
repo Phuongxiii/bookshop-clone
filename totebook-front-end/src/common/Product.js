@@ -3,9 +3,9 @@
 import { Image, HStack, Text, VStack, Link, Box } from "@chakra-ui/react";
 import React from "react";
 
-export default function Product({ src, name, title, href }) {
+export default function Product({ src, name, title, href, key }) {
 	return (
-		<Link href={href}>
+		<Link href={href} key={key}>
 			<HStack
 				h='68px'
 				p='8px'

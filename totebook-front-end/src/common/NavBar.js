@@ -1,20 +1,12 @@
 /** @format */
 
-import {
-	Box,
-	Container,
-	Image,
-	LightMode,
-	Link,
-	Text,
-	useColorModeValue,
-} from "@chakra-ui/react";
-import React from "react";
+import { Box, Container, Image, LightMode, Link, Text } from "@chakra-ui/react";
+import React, { useEffect } from "react";
 import AboutItem from "./AboutItem";
 import LinkPremium, { LinkPage } from "./LinkPremium";
 import Product from "./Product";
 
-export default function NavBar() {
+export default function NavBar({ posts }) {
 	return (
 		<Box backgroundColor='#f4f1ea' position='relative'>
 			<LightMode>
@@ -59,12 +51,19 @@ export default function NavBar() {
 						display='flex'>
 						<LinkPremium
 							boxChildren={
-								<Product
-									src='/Untitled.png'
-									name='Mark one'
-									title='A Minimal, Durable, Retractable Pen'
-									href='/products/1'
-								/>
+								posts != null
+									? posts.map((value, index, array) => {
+											return (
+												<Product
+													key={index}
+													src={value.image}
+													name={value.name}
+													title={value.title}
+													href={`/products/${index}`}
+												/>
+											);
+									  })
+									: null
 							}>
 							PRODUCTS
 						</LinkPremium>

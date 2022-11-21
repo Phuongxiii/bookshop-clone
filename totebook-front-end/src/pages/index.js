@@ -1,20 +1,15 @@
 /** @format */
 
-import {
-	Box,
-	Button,
-	Center,
-	Link,
-	Text,
-	useColorMode,
-	VStack,
-} from "@chakra-ui/react";
+import { Box, Button, Center, Link, Text, VStack } from "@chakra-ui/react";
 import Information from "./home-components/Information";
 import Product from "./home-components/Product";
-import Footer from "./home-components/Footer";
+import axios from "axios";
+import { useEffect } from "react";
 
-export default function Home() {
-	const { colorMode, toggleColorMode } = useColorMode();
+export default function Home({ posts, callBack }) {
+	useEffect(() => {
+		callBack(posts);
+	}, []);
 	return (
 		<VStack position='relative'>
 			<Box
@@ -51,9 +46,20 @@ export default function Home() {
 					</VStack>
 				</Center>
 			</Box>
-			<Product />
+			<Product posts={posts} />
 			<Information />
-			<Footer />
 		</VStack>
 	);
+}
+
+export async function getStaticProps() {
+	const path = "http://127.0.0.1:8000/";
+	const res = await axios.get(path);
+	const posts = await res.data;
+
+	return {
+		props: {
+			posts,
+		},
+	};
 }

@@ -4,7 +4,7 @@ import { Box, Center, Container, List, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import ProductItem from "./ProductItem";
 
-export default function Product() {
+export default function Product({ posts }) {
 	return (
 		<Box
 			backgroundColor='#f4f1ea'
@@ -30,12 +30,19 @@ export default function Product() {
 					</VStack>
 				</Center>
 				<List>
-					<ProductItem
-						src='/Untitled.png'
-						href='/'
-						name='MARK ONE'
-						title='A Minimal, Durable, Retractable Pen'
-					/>
+					{posts != null
+						? posts.map((value, index, array) => {
+								return (
+									<ProductItem
+										key={index}
+										src={value.image}
+										name={value.name}
+										title={value.title}
+										href={`/products/${index}`}
+									/>
+								);
+						  })
+						: null}
 				</List>
 			</Container>
 		</Box>

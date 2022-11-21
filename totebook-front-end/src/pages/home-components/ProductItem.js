@@ -11,9 +11,9 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-export default function ProductItem({ src, name, title, href }) {
+export default function ProductItem({ src, name, title, href, ...prop }) {
 	return (
-		<ListItem float='left' marginLeft='38px'>
+		<ListItem float='left' marginLeft='38px' {...prop}>
 			<VStack p={8}>
 				<Link href={href} textAlign='center'>
 					<Image

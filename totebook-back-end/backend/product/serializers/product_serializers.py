@@ -9,6 +9,6 @@ class ProductSerializers(serializers.ModelSerializer):
     image = serializers.ImageField(use_url=True)
     class Meta:
         model = Product
-        fields = ['title', 'name', 'image', 'price', 'description', 'video', 'type', 
+        fields = ['id','title', 'name', 'image', 'price', 'description','category',  'video', 'type', 
         'information_field', 'suggestion_field',
          'created_at', 'updated_at']

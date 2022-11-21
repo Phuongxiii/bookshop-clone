@@ -6,4 +6,4 @@ class ProductThumSerializers(serializers.ModelSerializer):
     suggestion_field = SuggestionSerializers(many=True, read_only=True)
     class Meta:
         model = ProductThum
-        fields = ('name', 'title', 'image','category', 'suggestion_field')
+        fields = ('id','name', 'title', 'image','category', 'suggestion_field')
